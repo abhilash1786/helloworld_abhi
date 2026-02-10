@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            background-color: #f8c8d1; /* Soft Pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 { color: #333; }
+        .btn-group { margin-top: 20px; position: relative; height: 50px; }
+        
+        button {
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; margin-right: 10px; }
+        #noBtn { background-color: #eee; color: #333; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <h1>Shivani, will you be my Valentine? 💕</h1>
+        <div class="btn-group">
+            <button id="yesBtn" onclick="celebrate()">YES</button>
+            <button id="noBtn">NO</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const mainCard = document.getElementById('mainCard');
+
+        // This makes the "No" button run away
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        });
+
+        // What happens when you click YES
+        function celebrate() {
+            mainCard.innerHTML = `
+                <h1 style="color: #ff4d6d;">YAY!!! ❤️</h1>
+                <p>Best decision ever! 🥳</p>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdWswYmE1ZzRxeGZ3Ynh4N3YyN3YyN3YyN3YyN3YyN3YyJnBvcz1jJmpxPXN0/l0HlUxcBc6g6h2u/giphy.gif" width="250">
+                <p>I love you!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
